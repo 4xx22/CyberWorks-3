@@ -21,7 +21,7 @@ class LifeLogController extends Controller
         $table->setFormatRowFunction(function ($log) {
             return [
                 '<a href="' . $log->profileUrl . '"target="_blank">' . $log->name . '</a>',
-                '<a href="player/' . $log->player_id . '"target="_blank">' . $log->playerName . '</a>',
+                '<a href="/player/' . $log->player_id . '"target="_blank">' . $log->playerName . '</a>',
                 $log->message,
                 (string) $log->created_at
             ];
