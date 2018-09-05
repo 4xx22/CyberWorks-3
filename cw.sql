@@ -116,6 +116,12 @@ CREATE TABLE IF NOT EXISTS `cw_users` (
   UNIQUE KEY `connect_id` (`connect_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ ALTER TABLE `cw_permissions`
+    ADD COLUMN `can_del_group` TINYINT(1) NOT NULL DEFAULT '0' AFTER `can_edit_group_perms_house`;
+
+ ALTER TABLE `cw_logs`
+    CHANGE COLUMN `type` `type` ENUM('0','1','2','3','4','5','6') NOT NULL DEFAULT '0' AFTER `user_id`; 
+
 -- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
